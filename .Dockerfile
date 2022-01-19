@@ -1,6 +1,6 @@
-FROM python:3.8.10 AS ltu-env
+FROM python:3.8.10 AS env
 
-WORKDIR /ltu
+WORKDIR /src
 
 COPY models models
 COPY requirements.txt requirements.txt
