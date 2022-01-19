@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - default
+
+  etl: 
+    build: 
+      context: .
+      dockerfile: .Dockerfile
+    environment:
+      - DATABASE=***
+    command: python run_etl.py
+    networks:
+      - default
+
+
+networks:
+  default:
+    name: model
